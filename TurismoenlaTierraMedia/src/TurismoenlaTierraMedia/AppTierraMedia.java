@@ -41,31 +41,18 @@ public class AppTierraMedia {
 
 			// >>> PRIMERO SUGIERE SEGUN SU PREFERENCIA DE TIPO DE ATRACCION
 			// >>> LUEGO OTRAS OPCIONES
-
-			/*
-			for (Producto opciones : sugerencias) {
-				ArrayList<String> nombresAtrIncluidas = opciones.getNombreAtracciones();
-				System.out.println("Inluye: ");
-				for (int i = 0; i < nombresAtrIncluidas.size(); i++) {
-					System.out.println(nombresAtrIncluidas.get(i));
-				}
-				System.out.println("a un precio de " + opciones.getPrecioDescuento() + " monedas y dura "
-						+ opciones.getDuracionTotal());
-				System.out.println();
-			}
-			*/
+		
 
 			for (Producto producto : sugerencias) {
 
 				// SI PUDE COMPRAR, NO LA COMPRO AUN Y TIENE CUPO SUGIERE
-				
 				if (user.puedeComprar(producto) && producto.noEstaEnItinerario(itinerario)
 						&& producto.tieneCupo()) {
 
 					ArrayList<String> nombresAtrIncluidas = producto.getNombreAtracciones();
 
 					// IMPRIME POR CONSOLA SALDO Y TIEMPO DIPONIBLE
-					System.out.println("Su saldo es: " + user.getDineroDisponible() + " Su tiempo disponible es: "
+					System.out.println("Su saldo es: " + user.getDineroDisponible() + ". Su tiempo disponible es: "
 							+ user.getTiempoDisponible());
 
 					System.out.println(">>>--------------------------------------------<<<");

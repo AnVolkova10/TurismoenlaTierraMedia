@@ -132,7 +132,6 @@ public class Sistema {
 
 	public static List<Producto> getSugerencias(List<Producto> productos, TipoAtraccion tipo) {
 
-		
 		List<Producto> sugerencias = new ArrayList<Producto>();
 		List<Producto> queNoCoinciden = new ArrayList<Producto>();
 
@@ -147,23 +146,6 @@ public class Sistema {
 
 		return sugerencias;
 	}
-	
-	/*
-	public static List<Atracciones> getSugerencias(List<Producto> atracciones, TipoAtraccion tipo) {
-
-		List<Producto> queMeGustan = new ArrayList<Atracciones>();
-
-		for (Producto ca : atracciones)
-			if (ca.getTipoDeAtraccion() == tipo)
-				queMeGustan.add(ca);
-
-		for (Prdoducto ca : atracciones)
-			if (ca.getTipoDeAtraccion() != tipo)
-				queMeGustan.add(ca);
-
-		return queMeGustan;
-	}
-	*/
 
 	// ---------------------------------------------------------------------------------
 	// Abro archivo Promociones y creo Lista Producto con ellas
