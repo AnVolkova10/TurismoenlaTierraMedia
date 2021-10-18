@@ -1,6 +1,9 @@
 package tierraMedia;
 
-import java.io.File;
+import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -12,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+import model.Usuario;
 import tierraMedia.Atracciones;
 import tierraMedia.Producto;
 import tierraMedia.ProductosOrdenadosPrecio;
@@ -20,7 +24,6 @@ import tierraMedia.PromoAxB;
 import tierraMedia.PromoPorcentaje;
 import tierraMedia.Sistema;
 import tierraMedia.TipoAtraccion;
-import visitantes.Usuario;
 
 public class Sistema {
 	// Se crea la lista de Usuarios

@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import model.Usuario;
 import tierraMedia.TipoAtraccion;
-import visitantes.Usuario;
 
 public class CreacionUsuariosTest {
 

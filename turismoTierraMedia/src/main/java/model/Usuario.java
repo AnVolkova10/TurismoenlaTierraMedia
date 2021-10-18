@@ -1,4 +1,4 @@
-package visitantes;
+package model;
 
 import tierraMedia.Producto;
 import tierraMedia.TipoAtraccion;
@@ -14,6 +14,13 @@ public class Usuario {
 		this.dineroDisponible = dineroDisponible;
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
+	}
+	public Usuario(String nombre, double dineroDisponible, double tiempoDisponible, String preferencia) {
+		this.nombre = nombre;
+		this.dineroDisponible = dineroDisponible;
+		this.tiempoDisponible = tiempoDisponible;
+		TipoAtraccion pref = this.preferencia.valueOf(preferencia);
+		this.preferencia= pref;
 	}
 
 	// devuelve el nombre de usuario
@@ -67,5 +74,6 @@ public class Usuario {
 		return (this.getDineroDisponible() >= producto.getPrecioDescuento()
 				&& this.getTiempoDisponible() >= producto.getDuracionTotal());
 	}
+
 
 }

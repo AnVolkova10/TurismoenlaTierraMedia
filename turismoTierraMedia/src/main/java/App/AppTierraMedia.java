@@ -6,10 +6,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+import model.Usuario;
 import tierraMedia.Atracciones;
 import tierraMedia.Producto;
 import tierraMedia.Sistema;
-import visitantes.Usuario;
 
 public class AppTierraMedia {
 	public static void main(String[] args) throws IOException {
