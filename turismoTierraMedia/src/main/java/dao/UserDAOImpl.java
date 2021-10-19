@@ -79,12 +79,12 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
-	public Usuario findByUsername(String username) {
+	public Usuario findByName(String name) {
 		try {
 			String sql = "SELECT * FROM usuarios WHERE nombre LIKE ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, username);
+			statement.setString(1, name);
 			ResultSet results = statement.executeQuery();
 			Usuario user = null;
 			if (results.next()) {
@@ -117,12 +117,12 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	public int updateDinero(Usuario user) {
+	public int updateDinero(Usuario user, double dinero) {
 		try {
 			String sql ="UPDATE usuarios SET dinero = ? WHERE nombre LIKE ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement= conn.prepareStatement(sql);
-			statement.setDouble(2, user.getDineroDisponible());
+			statement.setDouble(2, dinero);
 			statement.setString(1, user.getNombreDeUsuario());
 			int rows = statement.executeUpdate();
 			return rows;
@@ -132,12 +132,12 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	public int updateTiempo(Usuario user) {
+	public int updateTiempo(Usuario user, double tiempo) {
 		try {
 			String sql ="UPDATE usuarios SET tiempo = ? WHERE nombre LIKE ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement= conn.prepareStatement(sql);
-			statement.setDouble(3, user.getTiempoDisponible());
+			statement.setDouble(3, tiempo);
 			statement.setString(1, user.getNombreDeUsuario());
 			int rows = statement.executeUpdate();
 			return rows;
@@ -147,12 +147,12 @@ public class UserDAOImpl implements UserDAO {
 		}
 	}
 
-	public int updatePreferencia(Usuario user) {
+	public int updatePreferencia(Usuario user, String pref) {
 		try {
 			String sql ="UPDATE usuarios SET preferencia = ? WHERE nombre LIKE ?";
 			Connection conn = ConnectionProvider.getConnection();
 			PreparedStatement statement= conn.prepareStatement(sql);
-			statement.setString(4, user.getPreferencia().toString());
+			statement.setString(4, pref);
 			statement.setString(1, user.getNombreDeUsuario());
 			int rows = statement.executeUpdate();
 			return rows;

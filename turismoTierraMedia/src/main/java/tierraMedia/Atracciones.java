@@ -14,6 +14,11 @@ public class Atracciones extends Producto implements Comparable<Atracciones>{
 		super(costoAtraccion, duracionAtraccion, nombreAtraccion, tipoDeAtraccion);
 		this.cupoPersonas = cupoPersonas;
 	}
+	public Atracciones(String nombreAtraccion, double costoAtraccion, double duracionAtraccion, int cupoPersonas,
+			String tipoDeAtraccion) {
+		super(costoAtraccion, duracionAtraccion, nombreAtraccion, tipoDeAtraccion);
+		this.cupoPersonas = cupoPersonas;
+	}
 
 	public Atracciones() {
 		super();

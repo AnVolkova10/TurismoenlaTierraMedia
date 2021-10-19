@@ -5,5 +5,8 @@ public class DAOFactory {
 		return new UserDAOImpl();
 		
 	}
+	public static AtraccionesDAO getAtraccionDAO() {
+		return new AtraccionesDAOImpl();
+	}
 
 }

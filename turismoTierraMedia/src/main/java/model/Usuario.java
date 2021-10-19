@@ -19,8 +19,8 @@ public class Usuario {
 		this.nombre = nombre;
 		this.dineroDisponible = dineroDisponible;
 		this.tiempoDisponible = tiempoDisponible;
-		TipoAtraccion pref = this.preferencia.valueOf(preferencia);
-		this.preferencia= pref;
+		TipoAtraccion stringToEnum = this.preferencia.valueOf(preferencia);
+		this.preferencia= stringToEnum;
 	}
 
 	// devuelve el nombre de usuario

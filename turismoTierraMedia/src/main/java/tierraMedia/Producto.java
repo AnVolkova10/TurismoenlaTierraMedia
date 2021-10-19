@@ -29,10 +29,12 @@ public abstract class Producto {
 	}
 
 	// Constructor para Producto con Atracciones
-	public Producto(double costo, double duracion, String nombreAtraccion) {
+	public Producto(double costo, double duracion, String nombreAtraccion, String tipoAtraccion) {
 		this.costoTotal = costo;
 		this.duracionTotal = duracion;
 		this.nombreProducto = nombreAtraccion;
+		TipoAtraccion stringToEnum = this.tipoAtraccion.valueOf(tipoAtraccion);
+		this.tipoAtraccion=stringToEnum;
 	}
 
 	public Producto() {
