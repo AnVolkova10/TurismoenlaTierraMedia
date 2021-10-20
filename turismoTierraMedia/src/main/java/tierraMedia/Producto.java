@@ -13,6 +13,22 @@ public abstract class Producto {
 	private double duracionTotal;
 
 	
+	
+	// Constructor para Producto con Promos
+		public Producto(ArrayList<Atracciones> atracciones, String nombreProducto, TipoAtraccion tipoAtraccion) {
+			this.setCostoTotal(atracciones);
+			this.setDuracionTotal(atracciones);
+			this.nombreProducto = nombreProducto;
+			this.tipoAtraccion = tipoAtraccion;
+		}
+		public Producto(ArrayList<Atracciones> atracciones, String nombreProducto, String tipoAtraccion) {
+			this.setCostoTotal(atracciones);
+			this.setDuracionTotal(atracciones);
+			this.setNombreProducto(nombreProducto);
+			TipoAtraccion stringToEnum = TipoAtraccion.valueOf(tipoAtraccion);
+			this.setTipoAtraccion(stringToEnum);
+			
+		}
 
 	// Constructor para Producto con Atracciones
 	public Producto(double costo, double duracion, String nombreAtraccion, TipoAtraccion tipoDeAtraccion) {

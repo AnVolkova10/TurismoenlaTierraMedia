@@ -8,6 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import jdbc.ConnectionProvider;
+import model.Usuario;
 import tierraMedia.Atracciones;
 
 public class AtraccionesDAO implements GenericDAO<Atracciones> {
@@ -94,6 +95,26 @@ public class AtraccionesDAO implements GenericDAO<Atracciones> {
 	private Atracciones toAtraccion(ResultSet results) throws SQLException {
 		return new Atracciones(results.getString(1), results.getDouble(2), results.getDouble(3), results.getInt(4),
 				results.getString(5));
+	}
+
+	public Atracciones findByName(String name) {
+		try {
+			String sql = "SELECT * FROM atracciones WHERE nombre_atraccion like ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, name);
+			ResultSet results = statement.executeQuery();
+			Atracciones nuevaAtraccion = null;
+			if (results.next()) {
+				
+				nuevaAtraccion = toAtraccion(results);
+			}
+			
+			return nuevaAtraccion;
+			
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
 	}
 
 }

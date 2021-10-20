@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface GenericDAO<T> {
 	public List<T> findAll();
+	public T findByName(String t);
 	public int countAll();
 	public int insert(T t);	
 	public int delete(T t);

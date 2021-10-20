@@ -30,25 +30,7 @@ public class UserDAO implements GenericDAO<Usuario> {
 		} 
 	}
 	
-	public Usuario finByName (String name) {
-		try {
-			String sql = "SELECT * FROM usuarios WHERE nombre like ?";
-			Connection conn = ConnectionProvider.getConnection();
-			PreparedStatement statement = conn.prepareStatement(sql);
-			statement.setString(1, name);
-			ResultSet results = statement.executeQuery();
-			Usuario nuevoUsuario = null;
-			if (results.next()) {
-				
-				nuevoUsuario = toUsuario(results);
-			}
-			
-			return nuevoUsuario;
-			
-		} catch (Exception e) {
-			throw new MissingDataException(e);
-		}
-	}
+	
 	
 	public int countAll() {
 		try {
@@ -120,6 +102,30 @@ public class UserDAO implements GenericDAO<Usuario> {
 		return new Usuario(results.getString("nombre"), results.getDouble("dinero"), results.getDouble("tiempo"),
 				results.getString("preferencia"));
 	}
+
+
+
+	public Usuario findByName(String name) {
+		try {
+			String sql = "SELECT * FROM usuarios WHERE nombre like ?";
+			Connection conn = ConnectionProvider.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);
+			statement.setString(1, name);
+			ResultSet results = statement.executeQuery();
+			Usuario nuevoUsuario = null;
+			if (results.next()) {
+				
+				nuevoUsuario = toUsuario(results);
+			}
+			
+			return nuevoUsuario;
+			
+		} catch (Exception e) {
+			throw new MissingDataException(e);
+		}
+	}
+
+
 	
 	
 }

@@ -5,21 +5,23 @@ import java.util.ArrayList;
 import tierraMedia.Atracciones;
 import tierraMedia.TipoAtraccion;
 
-public class PromoAbsoluta extends Promocion{
+public class PromoAbsoluta extends Producto{
 	private Double precioFinal;
+	private ArrayList<Atracciones>atracciones;
 	
 
 	public PromoAbsoluta(ArrayList<Atracciones> atracciones, Double precioFinal, String nombre,
 			TipoAtraccion tipoAtraccion) {
 		super(atracciones, nombre, tipoAtraccion);
 		this.setDescuentoAbsoluto(precioFinal);
+		this.atracciones = atracciones;
 		
 	}
 	public PromoAbsoluta(ArrayList<Atracciones> atracciones, Double precioFinal, String nombre,
 			String tipoAtraccion) {
 		super(atracciones, nombre, tipoAtraccion);
 		this.setDescuentoAbsoluto(precioFinal);
-		
+		this.atracciones = atracciones;
 	}
 
 	private void setDescuentoAbsoluto(Double precio) {
@@ -63,6 +65,9 @@ public class PromoAbsoluta extends Promocion{
 	@Override
 	public Atracciones getAtraccion() {
 		return null;
+	}
+	public ArrayList<Atracciones> getAtracciones(){
+		return this.atracciones;
 	}
 
 }

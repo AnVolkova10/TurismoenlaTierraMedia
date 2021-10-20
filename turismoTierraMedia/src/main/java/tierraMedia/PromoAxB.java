@@ -6,22 +6,25 @@ import java.util.List;
 import tierraMedia.Atracciones;
 import tierraMedia.TipoAtraccion;
 
-public class PromoAxB extends Promocion{
+public class PromoAxB extends Producto{
 	private Atracciones atrGratis;
+	ArrayList<Atracciones> atracciones;
 	
 
 	public PromoAxB(ArrayList<Atracciones> atracciones, Atracciones atrGratis, String nombre,
 			TipoAtraccion tipoAtraccion) {
 		super(atracciones, nombre, tipoAtraccion);
 		this.atrGratis = atrGratis;
-		this.agregarAtraccion(atrGratis);
+		this.atracciones=atracciones;
+		this.atracciones.add(atrGratis);
 	}
 	
 	public PromoAxB(ArrayList<Atracciones> atracciones, Atracciones atrGratis, String nombre,
 			String tipoAtraccion) {
 		super(atracciones, nombre, tipoAtraccion);
 		this.atrGratis = atrGratis;
-		this.agregarAtraccion(atrGratis);
+		this.atracciones=atracciones;
+		this.atracciones.add(atrGratis);
 	}
 	
 
@@ -84,6 +87,9 @@ public class PromoAxB extends Promocion{
 	public Atracciones getAtraccion() {
 		return this.getAtraccion();
 		
+	}
+	public ArrayList<Atracciones> getAtracciones(){
+		return this.atracciones;
 	}
 
 }

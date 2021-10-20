@@ -6,7 +6,7 @@ import tierraMedia.Atracciones;
 import tierraMedia.Producto;
 import tierraMedia.TipoAtraccion;
 
-public class Atracciones extends Producto implements Comparable<Atracciones>{
+public class Atracciones extends Producto implements Comparable<Atracciones> {
 	private int cupoPersonas;
 
 	public Atracciones(String nombreAtraccion, double costoAtraccion, double duracionAtraccion, int cupoPersonas,
@@ -14,6 +14,7 @@ public class Atracciones extends Producto implements Comparable<Atracciones>{
 		super(costoAtraccion, duracionAtraccion, nombreAtraccion, tipoDeAtraccion);
 		this.cupoPersonas = cupoPersonas;
 	}
+
 	public Atracciones(String nombreAtraccion, double costoAtraccion, double duracionAtraccion, int cupoPersonas,
 			String tipoDeAtraccion) {
 		super(costoAtraccion, duracionAtraccion, nombreAtraccion, tipoDeAtraccion);
@@ -70,7 +71,6 @@ public class Atracciones extends Producto implements Comparable<Atracciones>{
 		return null;
 	}
 
-	
 	public int compareTo(Atracciones o) {
 		return super.getNombreProducto().compareTo(o.getNombreProducto());
 
@@ -89,6 +89,12 @@ public class Atracciones extends Producto implements Comparable<Atracciones>{
 	@Override
 	public ArrayList<Atracciones> getAtraccionesPromo() {
 		return null;
+	}
+
+	public String toString() {
+		return "Nombre: " + this.getNombreAtraccion() + ", Costo: " + this.getCostoAtraccion() + ", Duracion (hs): "
+				+ this.getDuracionAtraccion() + ", Cupo: " + this.getCupoPersonas() + ", Tipo: "
+				+ this.getTipoDeAtraccion().toString() + "\n";
 	}
 
 }

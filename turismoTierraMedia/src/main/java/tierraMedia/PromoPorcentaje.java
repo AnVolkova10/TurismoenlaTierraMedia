@@ -5,19 +5,20 @@ import java.util.ArrayList;
 import tierraMedia.Atracciones;
 import tierraMedia.TipoAtraccion;
 
-public class PromoPorcentaje extends Promocion {
+public class PromoPorcentaje extends Producto {
 	private double porcentajeDescuento;
+	private ArrayList<Atracciones>atracciones;
 
 	public PromoPorcentaje(ArrayList<Atracciones> atracciones, double Porcent, String nombre,
 			TipoAtraccion tipoAtraccion) {
 		super(atracciones, nombre, tipoAtraccion);
-		
+		this.atracciones = atracciones;
 		this.setPorcentajeDescuento(Porcent);
 	}
 	public PromoPorcentaje(ArrayList<Atracciones> atracciones, double Porcent, String nombre,
 			String tipoAtraccion) {
 		super(atracciones, nombre, tipoAtraccion);
-		
+		this.atracciones = atracciones;
 		this.setPorcentajeDescuento(Porcent);
 	}
 
@@ -67,6 +68,9 @@ public class PromoPorcentaje extends Promocion {
 	@Override
 	public Atracciones getAtraccion() {
 		return null;
+	}
+	public ArrayList<Atracciones> getAtracciones(){
+		return this.atracciones;
 	}
 
 
