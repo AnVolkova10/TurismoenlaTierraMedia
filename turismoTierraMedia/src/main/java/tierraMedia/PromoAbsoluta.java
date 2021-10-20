@@ -5,15 +5,21 @@ import java.util.ArrayList;
 import tierraMedia.Atracciones;
 import tierraMedia.TipoAtraccion;
 
-public class PromoAbsoluta extends Producto{
+public class PromoAbsoluta extends Promocion{
 	private Double precioFinal;
-	protected ArrayList<Atracciones> atracciones;
+	
 
 	public PromoAbsoluta(ArrayList<Atracciones> atracciones, Double precioFinal, String nombre,
 			TipoAtraccion tipoAtraccion) {
 		super(atracciones, nombre, tipoAtraccion);
 		this.setDescuentoAbsoluto(precioFinal);
-		this.atracciones = atracciones;
+		
+	}
+	public PromoAbsoluta(ArrayList<Atracciones> atracciones, Double precioFinal, String nombre,
+			String tipoAtraccion) {
+		super(atracciones, nombre, tipoAtraccion);
+		this.setDescuentoAbsoluto(precioFinal);
+		
 	}
 
 	private void setDescuentoAbsoluto(Double precio) {
@@ -29,8 +35,8 @@ public class PromoAbsoluta extends Producto{
 	// Descuento un lugar al cupo de las atracciones que incluye esta promo
 	@Override
 	public void descontarCupoProducto() {
-		for (int i = 0; i < this.atracciones.size(); i++) {
-			this.atracciones.get(i).descontarCupoAtraccion();
+		for (int i = 0; i < this.getAtracciones().size(); i++) {
+			this.getAtracciones().get(i).descontarCupoAtraccion();
 		}
 	}
 
@@ -38,8 +44,8 @@ public class PromoAbsoluta extends Producto{
 	@Override
 	public ArrayList<String> getNombreAtracEnPromo() {
 		ArrayList<String> nombres = new ArrayList<String>();
-		for (int i = 0; i < this.atracciones.size(); i++) {
-			nombres.add(this.atracciones.get(i).getNombreAtraccion());
+		for (int i = 0; i < this.getAtracciones().size(); i++) {
+			nombres.add(this.getAtracciones().get(i).getNombreAtraccion());
 		}
 		return nombres;
 	}
@@ -51,7 +57,7 @@ public class PromoAbsoluta extends Producto{
 
 	@Override
 	public ArrayList<Atracciones> getAtraccionesPromo() {
-		return this.atracciones;
+		return this.getAtracciones();
 	}
 
 	@Override

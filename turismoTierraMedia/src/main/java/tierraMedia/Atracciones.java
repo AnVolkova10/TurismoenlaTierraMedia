@@ -26,22 +26,22 @@ public class Atracciones extends Producto implements Comparable<Atracciones>{
 
 	// informa el nombre de la atraccion
 	public String getNombreAtraccion() {
-		return super.nombreProducto;
+		return super.getNombreProducto();
 	}
 
 	// informa el costo de la atraccion.
 	public double getCostoAtraccion() {
-		return super.costoTotal;
+		return super.getCostoTotal();
 	}
 
 	// informa la duracion de la atraccion.
 	public double getDuracionAtraccion() {
-		return super.duracionTotal;
+		return super.getDuracionTotal();
 	}
 
 	// informa el cupo de personas que queda.
 	public int getCupoPersonas() {
-		return cupoPersonas;
+		return this.cupoPersonas;
 	}
 
 	public boolean tieneCupo() {
@@ -62,7 +62,7 @@ public class Atracciones extends Producto implements Comparable<Atracciones>{
 	// Para la lista producto
 	@Override
 	public double getPrecioDescuento() {
-		return super.costoTotal;
+		return super.getCostoTotal();
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class Atracciones extends Producto implements Comparable<Atracciones>{
 
 	
 	public int compareTo(Atracciones o) {
-		return super.nombreProducto.compareTo(o.nombreProducto);
+		return super.getNombreProducto().compareTo(o.getNombreProducto());
 
 	}
 

@@ -4,7 +4,7 @@ import tierraMedia.Producto;
 import tierraMedia.TipoAtraccion;
 
 public class Usuario {
-	private String nombre = " ";
+	private String nombre;
 	private double dineroDisponible;
 	private double tiempoDisponible;
 	private TipoAtraccion preferencia;
@@ -15,12 +15,13 @@ public class Usuario {
 		this.tiempoDisponible = tiempoDisponible;
 		this.preferencia = preferencia;
 	}
+
 	public Usuario(String nombre, double dineroDisponible, double tiempoDisponible, String preferencia) {
 		this.nombre = nombre;
 		this.dineroDisponible = dineroDisponible;
 		this.tiempoDisponible = tiempoDisponible;
 		TipoAtraccion stringToEnum = this.preferencia.valueOf(preferencia);
-		this.preferencia= stringToEnum;
+		this.preferencia = stringToEnum;
 	}
 
 	// devuelve el nombre de usuario
@@ -75,5 +76,9 @@ public class Usuario {
 				&& this.getTiempoDisponible() >= producto.getDuracionTotal());
 	}
 
+	public String toString() {
+		return "Nombre: " + this.nombre + ", Dinero: " + this.dineroDisponible + ", Tiempo: " + this.tiempoDisponible
+				+ ", Preferencia: " + this.preferencia + "\n";
+	}
 
 }

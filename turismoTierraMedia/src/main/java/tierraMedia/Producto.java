@@ -7,18 +7,12 @@ import tierraMedia.Atracciones;
 import tierraMedia.TipoAtraccion;
 
 public abstract class Producto {
-	protected String nombreProducto;
-	protected TipoAtraccion tipoAtraccion;
-	protected double costoTotal;
-	protected double duracionTotal;
+	private String nombreProducto;
+	private TipoAtraccion tipoAtraccion;
+	private double costoTotal;
+	private double duracionTotal;
 
-	// Constructor para Producto con Promos
-	public Producto(ArrayList<Atracciones> atracciones, String nombreProducto, TipoAtraccion tipoAtraccion) {
-		this.setCostoTotal(atracciones);
-		this.setDuracionTotal(atracciones);
-		this.nombreProducto = nombreProducto;
-		this.tipoAtraccion = tipoAtraccion;
-	}
+	
 
 	// Constructor para Producto con Atracciones
 	public Producto(double costo, double duracion, String nombreAtraccion, TipoAtraccion tipoDeAtraccion) {
@@ -137,5 +131,13 @@ public abstract class Producto {
 
 	// si es atraccion obtiene a ella misma, si es promo no hace nada
 	public abstract Atracciones getAtraccion();
+	
+	public void setNombreProducto(String nombreProd) {
+		this.nombreProducto = nombreProd;
+	}
+	public void setTipoAtraccion(TipoAtraccion tipo) {
+		this.tipoAtraccion=tipo;
+	}
+	
 
 }

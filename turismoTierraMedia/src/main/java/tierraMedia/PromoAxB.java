@@ -1,21 +1,29 @@
 package tierraMedia;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import tierraMedia.Atracciones;
 import tierraMedia.TipoAtraccion;
 
-public class PromoAxB extends Producto{
+public class PromoAxB extends Promocion{
 	private Atracciones atrGratis;
-	protected ArrayList<Atracciones> atracciones;
+	
 
 	public PromoAxB(ArrayList<Atracciones> atracciones, Atracciones atrGratis, String nombre,
 			TipoAtraccion tipoAtraccion) {
 		super(atracciones, nombre, tipoAtraccion);
 		this.atrGratis = atrGratis;
-		this.atracciones = atracciones;
-		this.atracciones.add(atrGratis);
+		this.agregarAtraccion(atrGratis);
 	}
+	
+	public PromoAxB(ArrayList<Atracciones> atracciones, Atracciones atrGratis, String nombre,
+			String tipoAtraccion) {
+		super(atracciones, nombre, tipoAtraccion);
+		this.atrGratis = atrGratis;
+		this.agregarAtraccion(atrGratis);
+	}
+	
 
 	// Obtener precio CON descuento
 	@Override
@@ -31,18 +39,18 @@ public class PromoAxB extends Producto{
 	// Obtener precio SIN descuento
 	@Override
 	public Double getCostoTotal() {
-		return super.costoTotal + atrGratis.getCostoAtraccion();
+		return super.getCostoTotal() + atrGratis.getCostoAtraccion();
 	}
 
 	// Obtener duracion sumando el tiempo de la Atraccion gratis
 	public double getDuracionTotal() {
-		return super.duracionTotal + atrGratis.getDuracionAtraccion();
+		return super.getDuracionTotal() + atrGratis.getDuracionAtraccion();
 	}
 
 	@Override
 	public void descontarCupoProducto() {
-		for (int i = 0; i < this.atracciones.size(); i++) {
-			this.atracciones.get(i).descontarCupoAtraccion();
+		for (int i = 0; i < this.getAtracciones().size(); i++) {
+			this.getAtracciones().get(i).descontarCupoAtraccion();
 		}
 	}
 
@@ -51,8 +59,8 @@ public class PromoAxB extends Producto{
 	public ArrayList<String> getNombreAtracEnPromo() {
 		ArrayList<String> nombres = new ArrayList<String>();
 
-		for (int i = 0; i < this.atracciones.size(); i++) {
-			nombres.add(this.atracciones.get(i).getNombreAtraccion());
+		for (int i = 0; i < this.getAtracciones().size(); i++) {
+			nombres.add(this.getAtracciones().get(i).getNombreAtraccion());
 		}
 		return nombres;
 	}
@@ -64,12 +72,18 @@ public class PromoAxB extends Producto{
 
 	@Override
 	public ArrayList<Atracciones> getAtraccionesPromo() {
-		return this.atracciones;
+		return this.getAtracciones();
+	}
+
+	
+	public Atracciones getAtraccionGratuita() {
+		return this.atrGratis;
 	}
 
 	@Override
 	public Atracciones getAtraccion() {
-		return null;
+		return this.getAtraccion();
+		
 	}
 
 }
