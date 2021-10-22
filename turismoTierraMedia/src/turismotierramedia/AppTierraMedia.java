@@ -53,6 +53,7 @@ public class AppTierraMedia {
 		// SE CREA LISTA PARA GUARDAR ITINERARIO
 
 		LinkedList<Atracciones> itinerario = new LinkedList<Atracciones>();
+		ArrayList<String> compra = new ArrayList<String>();
 
 		// EMPIEZA A RECORRER LA LISTA DE SUGERENCIAS
 		for (Producto producto : sugerencias) {
@@ -117,9 +118,11 @@ public class AppTierraMedia {
 					//para cuando implementemos lo que ya compro
 					// o vemos de tirar todo no se!
 					
+					/*
 					Itinerario compra= new Itinerario(user.getNombreDeUsuario(), producto.getNombreProducto());
 					ItinerarioDAO itDB = new ItinerarioDAO();
-					itDB.insert(compra);					
+					itDB.insert(compra);
+					*/
 					
 					if(producto.esPromo()) {
 						ArrayList<Atracciones> atrac = producto.getAtraccionesPromo();
@@ -129,13 +132,24 @@ public class AppTierraMedia {
 						Atracciones atrac = producto.getAtraccion();
 						itinerario.add(atrac);
 					}
-
+					
+					
+					//---- NUEVO delfi para cargar las compras en db
+					
+					compra.add(producto.getNombreProducto());
 				}
 			} // CIERRA EL IF
 			
 		} // CIERRA EL IF SI TIENE DINERO
+		
+		
+		// Aca ya termino de comprar
+		// cargo todo a itinerario
+		Itinerario itin= new Itinerario(user.getNombreDeUsuario(), compra, dineroTotal, tiempoTotal);
+		ItinerarioDAO itDB = new ItinerarioDAO();
+		itDB.insert(itin);
 	}
-
+	
 	// Actualizar base usuarios tiempo y dinero
 	
 	
